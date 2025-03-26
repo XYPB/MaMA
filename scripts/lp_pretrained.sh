@@ -28,7 +28,7 @@ python train.py  \
     --symmetric_local \
     --sgd \
     --min_lr 1e-5 \
-    --pretrained_encoder "$1" \
+    --pretrained_encoder $1 \
     --num_classes 7 \
     --img_cls_ft \
     --balance_training \
@@ -63,7 +63,7 @@ python train.py  \
     --pool_txt_feat \
     --symmetric_local \
     --min_lr 1e-5 \
-    --pretrained_encoder "$1" \
+    --pretrained_encoder $1 \
     --num_classes 4 \
     --img_cls_ft \
     --balance_training \
@@ -99,7 +99,7 @@ python train.py  \
     --pool_txt_feat \
     --symmetric_local \
     --min_lr 1e-5 \
-    --pretrained_encoder "$1" \
+    --pretrained_encoder $1 \
     --img_cls_ft \
     --balance_training \
     --freeze_vit

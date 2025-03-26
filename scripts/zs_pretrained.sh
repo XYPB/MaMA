@@ -33,7 +33,7 @@ python train.py  \
     --pool_txt_feat \
     --late_loss 8000 \
     --symmetric_local  \
-    --pretrained_model "$1" \
+    --pretrained_model $1 \
     --num_classes 7 \
     --balanced_test \
     --instance_test_cap \
@@ -72,7 +72,7 @@ python train.py  \
     --pool_txt_feat \
     --late_loss 8000 \
     --symmetric_local  \
-    --pretrained_model "$1" \
+    --pretrained_model $1 \
     --num_classes 4 \
     --balanced_test \
     --instance_test_cap \
@@ -112,7 +112,7 @@ python train.py  \
     --pool_txt_feat \
     --late_loss 8000 \
     --symmetric_local  \
-    --pretrained_model "$1" \
+    --pretrained_model $1 \
     --num_classes 2 \
     --instance_test_cap \
     --eval
