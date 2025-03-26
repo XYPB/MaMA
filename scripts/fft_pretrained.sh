@@ -1,0 +1,102 @@
+#!/bin/bash
+
+# EMBED BI-RADS Linear Probing
+python train.py  \
+    --batch_size 36 \
+    --learning_rate 5e-4 \
+    --experiment_name MaMA_standard_SLA_ft \
+    --devices 2 \
+    --strategy 'ddp_find_unused_parameters_true' \
+    --precision bf16-true \
+    --weight_decay 1e-3 \
+    --warm_up 100 \
+    --emb_dim 512 \
+    --max_steps 8000 \
+    --pool_feat \
+    --embed \
+    --structural_cap \
+    --vit_grad_ckpt \
+    --slip \
+    --inter_side \
+    --img_size 518 \
+    --crop_size 518 \
+    --load_jpg \
+    --symmetric_clip \
+    --num_freeze_blocks 0 \
+    --local_contrast \
+    --pool_txt_feat \
+    --symmetric_local \
+    --sgd \
+    --min_lr 1e-5 \
+    --pretrained_encoder "$1" \
+    --num_classes 7 \
+    --img_cls_ft \
+    --balance_training \
+    --balanced_test \
+
+# EMBED Density Linear Probing
+python train.py  \
+    --batch_size 36 \
+    --learning_rate 5e-4 \
+    --experiment_name MaMA_standard_SLA_ft_density \
+    --devices 2 \
+    --strategy 'ddp_find_unused_parameters_true' \
+    --precision bf16-true \
+    --weight_decay 1e-3 \
+    --warm_up 100 \
+    --emb_dim 512 \
+    --max_steps 8000 \
+    --pool_feat \
+    --embed \
+    --structural_cap \
+    --vit_grad_ckpt \
+    --slip \
+    --inter_side \
+    --img_size 518 \
+    --crop_size 518 \
+    --load_jpg \
+    --symmetric_clip \
+    --num_freeze_blocks 0 \
+    --sgd \
+    --local_contrast \
+    --pool_txt_feat \
+    --symmetric_local \
+    --min_lr 1e-5 \
+    --pretrained_encoder "$1" \
+    --num_classes 4 \
+    --img_cls_ft \
+    --balance_training \
+    --balanced_test \ \
+    --pred_density
+
+# RSNA-Mammo Linear Probing
+python train.py  \
+    --batch_size 36 \
+    --learning_rate 5e-4 \
+    --experiment_name MaMA_standard_SLA_ft_rsna_tune \
+    --devices 2 \
+    --strategy 'ddp_find_unused_parameters_true' \
+    --precision bf16-true \
+    --weight_decay 1e-3 \
+    --warm_up 100 \
+    --emb_dim 512 \
+    --max_steps 8000 \
+    --pool_feat \
+    --rsna_mammo \
+    --structural_cap \
+    --vit_grad_ckpt \
+    --slip \
+    --inter_side \
+    --img_size 518 \
+    --crop_size 518 \
+    --load_jpg \
+    --symmetric_clip \
+    --num_freeze_blocks 0 \
+    --sgd \
+    --local_contrast \
+    --pool_txt_feat \
+    --symmetric_local \
+    --min_lr 1e-5 \
+    --pretrained_encoder "$1" \
+    --img_cls_ft \
+    --balance_training \

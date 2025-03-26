@@ -1,0 +1,11 @@
+__pycache__
+logs
+data
+.vscode
+lightning_logs
+scripts/slurm*
+slurm*
+tmp
+*.pyc
+datasets/__pycache__/*
+pretrained

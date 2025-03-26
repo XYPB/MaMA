@@ -1,0 +1,34 @@
+#!/bin/bash
+
+python train.py  \
+    --batch_size 36 \
+    --learning_rate 4e-5 \
+    --experiment_name MaMA_standard_SLA \
+    --devices 4 \
+    --strategy 'ddp_find_unused_parameters_true' \
+    --llm_type gpt \
+    --precision bf16-true \
+    --peft lora \
+    --accumulate_grad_batches 2 \
+    --grad_ckpt \
+    --weight_decay 0.1 \
+    --warm_up 4000 \
+    --emb_dim 512 \
+    --max_steps 40000 \
+    --pool_feat \
+    --embed \
+    --structural_cap \
+    --slip \
+    --img_size 518 \
+    --crop_size 518 \
+    --vit_grad_ckpt \
+    --load_jpg \
+    --num_workers 8 \
+    --mask_ratio 1.0 \
+    --mask_meta 0.8 \
+    --symmetric_clip \
+    --inter_side  \
+    --local_contrast \
+    --pool_txt_feat \
+    --late_loss 8000 \
+    --symmetric_local  
