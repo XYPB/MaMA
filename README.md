@@ -2,7 +2,7 @@
 
 #### By *[Yuexi Du](https://xypb.github.io/), [John A. Onofrey](https://medicine.yale.edu/profile/john-onofrey/), and [Nicha C. Dvornek](https://www.hellonicha.com/)* from Yale University.
 
-[![License: Apache](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](./LICENSE) [![arXiv:2409.18119](https://img.shields.io/badge/arXiv-2409.18119-B31B1B.svg)](https://arxiv.org/abs/2409.18119)
+[![License: Apache](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](./LICENSE) [![arXiv:2409.18119v2](https://img.shields.io/badge/arXiv-2409.18119-B31B1B.svg)](https://arxiv.org/abs/2409.18119v2)
 
 ![teaser](assets/git_teaser.png)
 
@@ -64,7 +64,7 @@ You may also reproduce the full pre-training process as follows:
 ./scripts/pretrain.sh
 ```
 
-### Zero-shot:
+### Zero-shot Evaluation
 
 To reproduce the zero-shot evaluation, run:
 ```bash
@@ -72,6 +72,7 @@ To reproduce the zero-shot evaluation, run:
 ```
 
 ### Linear-Probing and Full Fine-Tuning
+
 To train the models under linear probing settings, run
 ```bash
 ./scripts/lp_pretrained.sh <path-to-pretrained-model>
