@@ -15,7 +15,6 @@ from tqdm import tqdm
 from transformers import BertTokenizer, AutoTokenizer
 from copy import deepcopy
 import random
-from memory_profiler import profile
 from .transforms import DataTransforms
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
