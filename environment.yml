@@ -229,3 +229,5 @@ dependencies:
       - xformers==0.0.23.post1+cu118
       - xxhash==3.4.1
       - yarl==1.9.3
+      - scikit_image==0.25.2
+      - imageio==2.37.0
