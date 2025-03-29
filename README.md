@@ -2,7 +2,7 @@
 
 #### By *[Yuexi Du](https://xypb.github.io/), [John A. Onofrey](https://medicine.yale.edu/profile/john-onofrey/), and [Nicha C. Dvornek](https://www.hellonicha.com/)* from Yale University.
 
-[![License: Apache](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](./LICENSE) [![arXiv:2409.18119v2](https://img.shields.io/badge/arXiv-2409.18119-B31B1B.svg)](https://arxiv.org/abs/2409.18119v2)
+[![License: Apache](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](./LICENSE) [![arXiv:2409.18119v2](https://img.shields.io/badge/arXiv-2409.18119-B31B1B.svg)](https://arxiv.org/abs/2409.18119v2) [![HF model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue)](https://huggingface.co/XYPB/MaMA/tree/main)
 
 ![teaser](assets/git_teaser.png)
 
@@ -10,6 +10,7 @@ This is the official implementation of paper **MaMA**: *"Multi-View and Multi-Sc
 
 ## News
 
+- [March 2025] We now provide the pre-trained model download at Huggingface! You can load our pre-trained ViT within a few lines of code now!
 - [March 2025] Paper is accepted by **IPMI 2025** for oral presentation!🎉 The code and pre-trained model are released!
 
 ## Abstract:
@@ -51,9 +52,9 @@ Download at [here](https://www.kaggle.com/competitions/rsna-breast-cancer-detect
 ### Pre-trained Checkpoint
 
 
-Our final pre-trained model with both a vision encoder and text encoder can be found at [Google Drive](https://drive.google.com/file/d/1UnAex2_feBWFmey9ZAxiI9fvCVc83Oox/view?usp=sharing). It also contains our pre-training configs and optimizer's state.
+Our final pre-trained model with both a vision encoder and text encoder can be found at [[Google Drive](https://drive.google.com/file/d/1UnAex2_feBWFmey9ZAxiI9fvCVc83Oox/view?usp=sharing)] & [[Huggingface](https://huggingface.co/XYPB/MaMA/tree/main)]. It also contains our pre-training configs and optimizer's state.
 
-We also provide the pretrained DiNOv2 ViT-B-14 checkpoint at [Google Drive](https://drive.google.com/file/d/1M9IKAPnTLjpKYgSJU_5-KOR-X7SMDG2T/view?usp=sharing), which can be easily reloaded using a few lines of code:
+We also provide the pretrained DiNOv2 ViT-B-14 checkpoint at [[Google Drive](https://drive.google.com/file/d/1M9IKAPnTLjpKYgSJU_5-KOR-X7SMDG2T/view?usp=sharing)] & [[Huggingface](https://huggingface.co/XYPB/MaMA/tree/main)], which can be easily reloaded using a few lines of code:
 
 ```python
 import torch
