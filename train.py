@@ -145,16 +145,8 @@ def cli_main():
 
     parser = ArgumentParser()
     parser.add_argument("--eval", action="store_true", help="Run evaluation")
-    parser.add_argument(
-        "--llm_type",
-        type=str,
-        default="gpt",
-        help="bert, gpt, llama, llama2, or llama3",
-    )
     parser.add_argument("--pretrained_model", type=str, default=None)
     parser.add_argument("--resume_ckpt", type=str, default=None)
-    parser.add_argument("--embed", action="store_true")
-    parser.add_argument("--rsna_mammo", action="store_true")
     parser = MaMACLIP.add_model_specific_args(parser)
 
     args = parser.parse_args()

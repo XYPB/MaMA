@@ -46,7 +46,7 @@ os.environ["WANDB_START_METHOD"] = "thread"
 
 
 class MaMACLIP(
-    LightningModule, 
+    LightningModule,
     PyTorchModelHubMixin,
 ):
 
@@ -697,6 +697,12 @@ class MaMACLIP(
         parser.add_argument("--vit_grad_ckpt", action="store_true")
         parser.add_argument("--stochastic_depth_prob", type=float, default=0.0)
         ### LLM args
+        parser.add_argument(
+            "--llm_type",
+            type=str,
+            default="gpt",
+            help="bert, gpt, llama, llama2, or llama3",
+        )
         parser.add_argument("--freeze_llm", action="store_true")
         parser.add_argument("--unlock_ln", action="store_true")
         parser.add_argument("--avg_sent_feat", action="store_true")
@@ -739,6 +745,8 @@ class MaMACLIP(
         parser.add_argument("--use_flash_attention", action="store_true")
 
         # Data args
+        parser.add_argument("--embed", action="store_true")
+        parser.add_argument("--rsna_mammo", action="store_true")
         parser.add_argument("--agg_tokens", action="store_true")
         parser.add_argument("--data_pct", type=float, default=1.0)
         parser.add_argument("--train_split", type=str, default="train")
