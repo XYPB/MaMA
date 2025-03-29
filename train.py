@@ -158,11 +158,7 @@ def cli_main():
     parser = MaMACLIP.add_model_specific_args(parser)
 
     args = parser.parse_args()
-    if args.baseline_clip:
-        args.img_encoder = "vit_base"
-        args.deterministic = True
-    else:
-        args.deterministic = False
+    args.deterministic = False
 
     if args.eval:
         args.batch_size = 32
