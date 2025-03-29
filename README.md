@@ -2,7 +2,7 @@
 
 #### By *[Yuexi Du](https://xypb.github.io/), [John A. Onofrey](https://medicine.yale.edu/profile/john-onofrey/), and [Nicha C. Dvornek](https://www.hellonicha.com/)* from Yale University.
 
-[![License: Apache](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](./LICENSE) [![arXiv:2409.18119](https://img.shields.io/badge/arXiv-2501.09753-B31B1B.svg)](https://arxiv.org/abs/2409.18119)
+[![License: Apache](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](./LICENSE) [![arXiv:2409.18119v2](https://img.shields.io/badge/arXiv-2409.18119-B31B1B.svg)](https://arxiv.org/abs/2409.18119v2)
 
 ![teaser](assets/git_teaser.png)
 
@@ -10,17 +10,17 @@ This is the official implementation of paper **MaMA**: *"Multi-View and Multi-Sc
 
 ## News
 
-- [March 2025] Paper is accepted by **IPMI 2025** for oral presentation!🎉 Code and pre-trained model is released!
+- [March 2025] Paper is accepted by **IPMI 2025** for oral presentation!🎉 The code and pre-trained model are released!
 
 ## Abstract:
 
-> Contrastive Language-Image Pre-training (CLIP) demonstrates strong potential in medical image analysis but requires substantial data and computational resources. Due to these restrictions, existing CLIP applications in medical imaging focus mainly on modalities like chest X-rays that have abundant image-report data available, leaving many other important modalities under-explored. Here, we propose one of the first adaptations of the full CLIP model to mammography, which presents significant challenges due to labeled data scarcity, high-resolution images with small regions of interest, and class-wise imbalance. We first develop a specialized supervision framework for mammography that leverages its multi-view nature. Furthermore, we design a symmetric local alignment module to better focus on detailed features in high-resolution images. Lastly, we incorporate a parameter-efficient fine-tuning approach for large language models pre-trained with medical knowledge to address data limitations. Our multi-view and multi-scale alignment (MaMA) method outperforms state-of-the-art baselines for three different tasks on two large real-world mammography datasets, EMBED and RSNA-Mammo, with only 52% model size compared with the largest baseline.
+> Contrastive Language-Image Pre-training (CLIP) demonstrates strong potential in medical image analysis but requires substantial data and computational resources. Due to these restrictions, existing CLIP applications in medical imaging focus mainly on modalities like chest X-rays that have abundant image-report data available, leaving many other important modalities underexplored. Here, we propose one of the first adaptations of the full CLIP model to mammography, which presents significant challenges due to labeled data scarcity, high-resolution images with small regions of interest, and class-wise imbalance. We first develop a specialized supervision framework for mammography that leverages its multi-view nature. Furthermore, we design a symmetric local alignment module to better focus on detailed features in high-resolution images. Lastly, we incorporate a parameter-efficient fine-tuning approach for large language models pre-trained with medical knowledge to address data limitations. Our multi-view and multi-scale alignment (MaMA) method outperforms state-of-the-art baselines for three different tasks on two large real-world mammography datasets, EMBED and RSNA-Mammo, with only 52% model size compared with the largest baseline.
 
 ## Reproducibility
 
 ### Environment:
 
-We first prepare the environment with required packages, we use PyTorch with CUDA 11.8 and pytorch-lightning 2.1+ for development as evaluation. We also use `xformers` for more efficient training and testing. You may install the environment with following steps:
+We first prepare the environment with required packages, we use PyTorch with CUDA 11.8 and pytorch-lightning 2.1+ for development as evaluation. We also use `xformers` for more efficient training and testing. You may install the environment with the following steps:
 
 ```bash
 conda env create -f environment.yml
@@ -32,26 +32,26 @@ pip install 'git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-war
 
 #### EMBED
 
-We pretrained our model with [Emory Breast Imaging Dataset (EMBED)](https://github.com/Emory-HITI/EMBED_Open_Data) from Emory University, which is one of the current largest 2D Mammography dataset. The dataset requires application to access, which can be done by filling out this [form](https://forms.gle/HwGMM6vdv3w32TKF9). We use both screening and diagnostic image for pre-training.
+We pretrained our model with [Emory Breast Imaging Dataset (EMBED)](https://github.com/Emory-HITI/EMBED_Open_Data) from Emory University, which is one of the current largest 2D Mammography datasets. The dataset requires application to access, which can be done by filling out this [form](https://forms.gle/HwGMM6vdv3w32TKF9). We use both screening and diagnostic images for pre-training.
 
 Download EMBED dataset at [here](https://aws.amazon.com/marketplace/pp/prodview-unw4li5rkivs2#resources)
 
-We pre-process and re-size the original DICOM images using `scripts/resize_embed.py`, which resize the long-side of original DICOM image to 1024. This will speed-up training by a lot and save your local disk space. For more detailed settings, please refer to our paper.
+We pre-process and re-size the original DICOM images using `scripts/resize_embed.py`, which resizes the long-side of the original DICOM image to 1024. This will speed up training by a lot and save your local disk space. For more detailed settings, please refer to our paper.
 
 ##### Data Split
 
-Unfortunately, we cannot share the data split for the EMBED dataset publicly as the access to this dataset needs approval. However, you can create your own data split following the same settings mentioned in the paper: 70%/10%/20% for training/validation/testing. You can also generate a similar split using `preprocess_embed.py`.
+Unfortunately, we cannot share the data split for the EMBED dataset publicly as access to this dataset needs approval. However, you can create your own data split following the same settings mentioned in the paper: 70%/10%/20% for training/validation/testing. You can also generate a similar split using `preprocess_embed.py`.
 
 #### RSNA-Mammo dataset
 
-We use RSNA-Mammo dataset from RSNA breast cancer detection challenge for out-of-distribution evaluation, which is a binary classification dataset for breast cancer.
+We use the RSNA-Mammo dataset from the RSNA breast cancer detection challenge for out-of-distribution evaluation, which is a binary classification dataset for breast cancer.
 
 Download at [here](https://www.kaggle.com/competitions/rsna-breast-cancer-detection/overview)
 
 ### Pre-trained Checkpoint
 
 
-Our final pre-trained with both vision encoder and text encoder can be found at [Google Drive](https://drive.google.com/file/d/1UnAex2_feBWFmey9ZAxiI9fvCVc83Oox/view?usp=sharing). It also contains our pre-training configs and optimizer's state.
+Our final pre-trained model with both a vision encoder and text encoder can be found at [Google Drive](https://drive.google.com/file/d/1UnAex2_feBWFmey9ZAxiI9fvCVc83Oox/view?usp=sharing). It also contains our pre-training configs and optimizer's state.
 
 We also provide the pretrained DiNOv2 ViT-B-14 checkpoint at [Google Drive](https://drive.google.com/file/d/1M9IKAPnTLjpKYgSJU_5-KOR-X7SMDG2T/view?usp=sharing), which can be easily reloaded using a few lines of code:
 
@@ -71,12 +71,12 @@ model.load_state_dict(state_dict)
 
 We use `wandb` to log our experiment results, so you may want to configure your wandb first before reproduce the results.
 
-You may also reproduce the full pre-training process as following:
+You may also reproduce the full pre-training process as follows:
 ```bash
 ./scripts/pretrain.sh
 ```
 
-### Zero-shot:
+### Zero-shot Evaluation
 
 To reproduce the zero-shot evaluation, run:
 ```bash
@@ -84,6 +84,7 @@ To reproduce the zero-shot evaluation, run:
 ```
 
 ### Linear-Probing and Full Fine-Tuning
+
 To train the models under linear probing settings, run
 ```bash
 ./scripts/lp_pretrained.sh <path-to-pretrained-model>
