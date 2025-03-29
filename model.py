@@ -48,8 +48,6 @@ os.environ["WANDB_START_METHOD"] = "thread"
 class MaMACLIP(
     LightningModule, 
     PyTorchModelHubMixin,
-    repo_url="https://huggingface.co/XYPB/MaMA",
-    license="apache-2.0",
 ):
 
     def __init__(
