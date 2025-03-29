@@ -21,9 +21,9 @@ from pytorch_lightning.strategies import DDPStrategy
 from lightning_fabric.strategies import FSDPStrategy
 from backbones.encoder_bert import BertEncoder
 from backbones.encoder_pemed import DinoEncoder, CausalLMEncoder
+from backbones.loss import NTXentLoss
 from sklearn.metrics import roc_auc_score, accuracy_score, balanced_accuracy_score
-from lightly.loss import NTXentLoss
-from lightly.models.modules import SimCLRProjectionHead
+from backbones.heads import SimCLRProjectionHead
 from huggingface_hub import PyTorchModelHubMixin
 import torch._dynamo
 
