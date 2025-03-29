@@ -76,12 +76,10 @@ class MaMACLIP(
 
         if self.hparams.embed:
             self.hparams.num_classes = 4 if self.hparams.pred_density else 7
-        elif self.hparams.vindr:
-            self.hparams.num_classes = 4 if self.hparams.pred_density else 5
         elif self.hparams.rsna_mammo:
             self.hparams.num_classes = 2
         else:
-            self.hparams.num_classes = 14
+            self.hparams.num_classes = self.hparams.num_classes
 
         self.confmat = MulticlassConfusionMatrix(self.hparams.num_classes)
         self.all_scores = None
