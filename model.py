@@ -24,6 +24,7 @@ from backbones.encoder_pemed import DinoEncoder, CausalLMEncoder
 from sklearn.metrics import roc_auc_score, accuracy_score, balanced_accuracy_score
 from lightly.loss import NTXentLoss
 from lightly.models.modules import SimCLRProjectionHead
+from huggingface_hub import PyTorchModelHubMixin
 import torch._dynamo
 
 # from deepspeed.ops.adam import FusedAdam, DeepSpeedCPUAdam
@@ -44,7 +45,12 @@ CHEXPERT_BASE_CAPTION = "this is a chest x ray of a patient with "
 os.environ["WANDB_START_METHOD"] = "thread"
 
 
-class MaMACLIP(LightningModule):
+class MaMACLIP(
+    LightningModule, 
+    PyTorchModelHubMixin,
+    repo_url="https://huggingface.co/XYPB/MaMA",
+    license="apache-2.0",
+):
 
     def __init__(
         self,
