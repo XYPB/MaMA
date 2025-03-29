@@ -225,6 +225,6 @@ dependencies:
       - tzdata==2023.3
       - wandb==0.16.0
       - werkzeug==3.0.1
-      - xformers==0.0.29.post3
+      - xformers==0.0.23.post1+cu118
       - xxhash==3.4.1
       - yarl==1.9.3
