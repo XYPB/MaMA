@@ -53,6 +53,18 @@ Download at [here](https://www.kaggle.com/competitions/rsna-breast-cancer-detect
 
 Our final pre-trained with both vision encoder and text encoder can be found at [Google Drive](https://drive.google.com/file/d/1UnAex2_feBWFmey9ZAxiI9fvCVc83Oox/view?usp=sharing). It also contains our pre-training configs and optimizer's state.
 
+We also provide the pretrained DiNOv2 ViT-B-14 checkpoint at [Google Drive](https://drive.google.com/file/d/1M9IKAPnTLjpKYgSJU_5-KOR-X7SMDG2T/view?usp=sharing), which can be easily reloaded using a few lines of code:
+
+```python
+import torch
+
+ckpt_path = "<your-path-to-ckpt>/mama_embed_pretrained_40k_steps_last_dinov2_vit_ckpt.pth"
+
+model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14_reg')
+state_dict = torch.load(ckpt_path)
+model.load_state_dict(state_dict)
+```
+
 **NOTE**: You may encounter potential error when using gradient checkpoint with LLMs implemented by Huggingface, to solve this, you need to add `use_reentrant=True` to the `gradient_checkpoint` function in the source code. You may also refer to [this issue](https://github.com/huggingface/transformers/issues/28536).
 
 ### Pre-training:

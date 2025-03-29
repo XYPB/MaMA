@@ -9,3 +9,4 @@ tmp
 *.pyc
 datasets/__pycache__/*
 pretrained
+tmp.py
