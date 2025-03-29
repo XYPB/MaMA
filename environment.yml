@@ -136,6 +136,7 @@ dependencies:
   - zlib=1.2.13=h5eee18b_0
   - zstd=1.5.5=hc292b87_0
   - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu118
       - absl-py==2.0.0
       - accelerate==0.24.1
       - aiohttp==3.9.0
