@@ -128,7 +128,7 @@ dependencies:
   - tbb=2021.8.0=hdb19cb5_0
   - tk=8.6.12=h1ccaba5_0
   - torchaudio=2.1.0=py311_cu118
-  - torchvision=0.16.2+cu118
+  - torchvision=0.16.0=py311_cu118
   - urllib3=1.26.18=py311h06a4308_0
   - wheel=0.41.2=py311h06a4308_0
   - xz=5.4.2=h5eee18b_0
