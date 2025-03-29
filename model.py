@@ -594,27 +594,15 @@ class MaMACLIP(
             auc = 0
             spec_80 = 0.0
             pF1 = 0.0
-        # TODO print classiwse acc and balanced acc
-        # TODO maybe also F1-score
         print("### Accuracy: {:.4f}".format(acc))
         print("### Balanced Accuracy: {:.4f}".format(ba))
         print("### AUC: {:.4f}".format(auc))
-        # print("### F1: {:.4f}".format(f1))
-        # print("\n### Specificity at 80% Sensitivity: {:.4f}".format(spec_80))
         print("### pF1: {:.4f}".format(pF1))
 
         # Reset metrics for the next test run
         self.confmat.reset()
         self.all_scores = None
         self.all_labels = None
-
-    def on_after_backward(self):
-        pass
-        # print("\n### on_after_backward enter")
-        # for name, p in self.named_parameters():
-        #     if p.grad is None and p.requires_grad:
-        #         print(name)
-        # print("\n### on_after_backward exit")
 
     @staticmethod
     def precision_at_k(output: torch.Tensor, target: torch.Tensor, top_k=(1,)):

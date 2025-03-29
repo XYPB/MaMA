@@ -401,10 +401,7 @@ class CausalLMEncoder(nn.Module):
         bz, _, _, _ = embeddings.shape
         last_word_tokens = []
         pad_token = self.tokenizer.pad_token_id
-        # print(caption_ids.shape)
-        # print(embeddings.shape)
         for i in range(bz):
-            # print(caption_ids[i, :])
             # Need to consider the prepending Tokens
             last_word_idx = 0
             for j in range(1, len(caption_ids[i, :]) + 1):
@@ -412,9 +409,6 @@ class CausalLMEncoder(nn.Module):
                 if caption_ids[i, -j] == pad_token:
                     last_word_idx -= 1
                     continue
-            # last_word_idx = torch.argwhere(caption_ids[i, :] == eos_token)[0][0].item()
-            # print(caption_ids[i, last_word_idx - 10:])
-            # print(last_word_idx, caption_ids[i, last_word_idx])
             last_word_tokens.append(embeddings[i, 0, last_word_idx, :].unsqueeze(0))
         return torch.stack(last_word_tokens, dim=0)
 
