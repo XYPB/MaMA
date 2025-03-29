@@ -156,16 +156,6 @@ GET_JPEG_PATH_FUNC = lambda x: x.replace("Embed", "EMBED_1080_JPG").replace(
 )
 
 
-# #############################################
-# VinDr constants
-# #############################################
-
-VINDR_DATA_PATH = DATA_BASE_DIR + "/VinDr/vindr-1.0.0"
-VINDR_IMAGE_DIR = VINDR_DATA_PATH + "/images"
-VINDR_CSV_DIR = VINDR_DATA_PATH + "/breast-level_annotations.csv"
-VINDR_DET_CSV_DIR = VINDR_DATA_PATH + "/finding_annotations.csv"
-VINDR_DENSITY_LETTER2DIGIT = {"A": 1, "B": 2, "C": 3, "D": 4}
-
 
 # #############################################
 # RSNA constants
