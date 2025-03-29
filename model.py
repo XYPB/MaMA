@@ -73,6 +73,8 @@ class MaMACLIP(
     ):
         super().__init__()
         self.save_hyperparameters()
+        if 'config' in self.hparams:
+            self.hparams.update(self.hparams.config)
 
         if self.hparams.embed:
             self.hparams.num_classes = 4 if self.hparams.pred_density else 7

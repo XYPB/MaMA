@@ -29,13 +29,24 @@ conda env create -f environment.yml
 pip install 'git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-warmup'
 ```
 
+
+### Load Pre-trained Model with 🤗 Hugging Face
+
+After installing the corresponding environment, you may load our full pre-trained model from Hugging Face using 1 line of code as follow:
+
+```python
+from model import MaMACLIP
+model = MaMACLIP.from_pretrained("XYPB/MaMA")
+```
+
+
 ### Dataset:
 
 #### EMBED
 
 We pretrained our model with [Emory Breast Imaging Dataset (EMBED)](https://github.com/Emory-HITI/EMBED_Open_Data) from Emory University, which is one of the current largest 2D Mammography datasets. The dataset requires application to access, which can be done by filling out this [form](https://forms.gle/HwGMM6vdv3w32TKF9). We use both screening and diagnostic images for pre-training.
 
-Download EMBED dataset at [here](https://aws.amazon.com/marketplace/pp/prodview-unw4li5rkivs2#resources)
+Download the EMBED dataset at [here](https://aws.amazon.com/marketplace/pp/prodview-unw4li5rkivs2#resources)
 
 We pre-process and re-size the original DICOM images using `scripts/resize_embed.py`, which resizes the long-side of the original DICOM image to 1024. This will speed up training by a lot and save your local disk space. For more detailed settings, please refer to our paper.
 
@@ -47,14 +58,25 @@ Unfortunately, we cannot share the data split for the EMBED dataset publicly as 
 
 We use the RSNA-Mammo dataset from the RSNA breast cancer detection challenge for out-of-distribution evaluation, which is a binary classification dataset for breast cancer.
 
-Download at [here](https://www.kaggle.com/competitions/rsna-breast-cancer-detection/overview)
+Download the RSNA-Mammo at [here](https://www.kaggle.com/competitions/rsna-breast-cancer-detection/overview)
+
+#### Define your data folder
+
+Before you proceed, you need to define the directory to all your datasets, you can change this at [here](https://github.com/XYPB/MaMA/blob/aefc7750f23b0d163feade8732e957c4a7552480/dataset/constants_val.py#L5), replace `<path-to-your-data-folder>` with your own path.
+
+Beside, you also need to use your own Huggingface API token to access and download pretrained encoders, you need to search `<replace-with-your-hf-api-token>` with in the repo, and replace it with your own API tokens.
 
 ### Pre-trained Checkpoint
 
 
-Our final pre-trained model with both a vision encoder and text encoder can be found at [[Google Drive](https://drive.google.com/file/d/1UnAex2_feBWFmey9ZAxiI9fvCVc83Oox/view?usp=sharing)] & [[Huggingface](https://huggingface.co/XYPB/MaMA/tree/main)]. It also contains our pre-training configs and optimizer's state.
+Our final pre-trained model with both a vision encoder and text encoder can be found below. It also contains our pre-training configs and optimizer's state.
 
-We also provide the pretrained DiNOv2 ViT-B-14 checkpoint at [[Google Drive](https://drive.google.com/file/d/1M9IKAPnTLjpKYgSJU_5-KOR-X7SMDG2T/view?usp=sharing)] & [[Huggingface](https://huggingface.co/XYPB/MaMA/tree/main)], which can be easily reloaded using a few lines of code:
+|Model|Google Drive|Hugging Face|
+|:---:|:---:|:---:|
+|Full MaMACLIP|[[Google Drive](https://drive.google.com/file/d/1UnAex2_feBWFmey9ZAxiI9fvCVc83Oox/view?usp=sharing)]|[[HuggingFace](https://huggingface.co/XYPB/MaMA/tree/main)]|
+|Pre-trained ViT|[[Google Drive](https://drive.google.com/file/d/1M9IKAPnTLjpKYgSJU_5-KOR-X7SMDG2T/view?usp=sharing)]|[[HuggingFace](https://huggingface.co/XYPB/MaMA/tree/main)]|
+
+We also provide the pretrained DiNOv2 ViT-B-14 checkpoint here, which can be easily reloaded using a few lines of code:
 
 ```python
 import torch
