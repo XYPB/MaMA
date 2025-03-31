@@ -48,6 +48,9 @@ os.environ["WANDB_START_METHOD"] = "thread"
 class MaMACLIP(
     LightningModule,
     PyTorchModelHubMixin,
+    repo_url="https://github.com/XYPB/MaMA",
+    license="apache-2.0",
+    pipeline_tag="zero-shot-image-classification"
 ):
 
     def __init__(
