@@ -2,7 +2,7 @@
 
 #### By *[Yuexi Du](https://xypb.github.io/), [John A. Onofrey](https://medicine.yale.edu/profile/john-onofrey/), and [Nicha C. Dvornek](https://www.hellonicha.com/)* from Yale University.
 
-[![License: Apache](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](./LICENSE) [![arXiv:2409.18119v2](https://img.shields.io/badge/arXiv-2409.18119-B31B1B.svg)](https://arxiv.org/abs/2409.18119v2) [![HF model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue)](https://huggingface.co/XYPB/MaMA/tree/main)
+[![License: Apache](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](./LICENSE) [![arXiv:2409.18119v2](https://img.shields.io/badge/arXiv-2409.18119-B31B1B.svg)](https://arxiv.org/abs/2409.18119v2)
 
 ![teaser](assets/git_teaser.png)
 
@@ -32,12 +32,9 @@ pip install 'git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-war
 
 ### Load Pre-trained Model with 🤗 Hugging Face
 
-After installing the corresponding environment, you may load our full pre-trained model from Hugging Face using 1 line of code as follow:
+~~After installing the corresponding environment, you may load our full pre-trained model from Hugging Face using 1 line of code as follows:~~
 
-```python
-from model import MaMACLIP
-model = MaMACLIP.from_pretrained("XYPB/MaMA")
-```
+**Note: Unfortunately, we cannot share our pre-trained model anymore due to the recently changed policy. You may train the model yourself following the instructions below.**
 
 
 ### Dataset:
@@ -64,31 +61,19 @@ Download the RSNA-Mammo at [here](https://www.kaggle.com/competitions/rsna-breas
 
 Before you proceed, you need to define the directory to all your datasets, you can change this at [here](https://github.com/XYPB/MaMA/blob/aefc7750f23b0d163feade8732e957c4a7552480/dataset/constants_val.py#L5), replace `<path-to-your-data-folder>` with your own path.
 
-Beside, you also need to use your own Huggingface API token to access and download pretrained encoders, you need to search `<replace-with-your-hf-api-token>` with in the repo, and replace it with your own API tokens.
+Besides, you also need to use your own Huggingface API token to access and download pretrained encoders, you need to search `<replace-with-your-hf-api-token>` within the repo, and replace it with your own API tokens.
 
 ### Pre-trained Checkpoint
 
 
-Our final pre-trained model with both a vision encoder and text encoder can be found below. It also contains our pre-training configs and optimizer's state.
+~~Our final pre-trained model with both a vision encoder and text encoder can be found below. It also contains our pre-training configs and optimizer's state.~~
 
-|Model|Google Drive|Hugging Face|
-|:---:|:---:|:---:|
-|Full MaMACLIP|[[Google Drive](https://drive.google.com/file/d/1UnAex2_feBWFmey9ZAxiI9fvCVc83Oox/view?usp=sharing)]|[[HuggingFace](https://huggingface.co/XYPB/MaMA/tree/main)]|
-|Pre-trained ViT|[[Google Drive](https://drive.google.com/file/d/1M9IKAPnTLjpKYgSJU_5-KOR-X7SMDG2T/view?usp=sharing)]|[[HuggingFace](https://huggingface.co/XYPB/MaMA/tree/main)]|
+~~We also provide the pretrained DiNOv2 ViT-B-14 checkpoint here, which can be easily reloaded using a few lines of code:~~
 
-We also provide the pretrained DiNOv2 ViT-B-14 checkpoint here, which can be easily reloaded using a few lines of code:
+**Note: Unfortunately, we cannot share our pre-trained model anymore due to the recently changed policy. You may train the model yourself following the instructions below.**
 
-```python
-import torch
 
-ckpt_path = "<your-path-to-ckpt>/mama_embed_pretrained_40k_steps_last_dinov2_vit_ckpt.pth"
-
-model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14_reg')
-state_dict = torch.load(ckpt_path)
-model.load_state_dict(state_dict)
-```
-
-**NOTE**: You may encounter potential error when using gradient checkpoint with LLMs implemented by Huggingface, to solve this, you need to add `use_reentrant=True` to the `gradient_checkpoint` function in the source code. You may also refer to [this issue](https://github.com/huggingface/transformers/issues/28536).
+**NOTE**: You may encounter a potential error when using gradient checkpoint with LLMs implemented by Huggingface. To solve this, you need to add `use_reentrant=True` to the `gradient_checkpoint` function in the source code. You may also refer to [this issue](https://github.com/huggingface/transformers/issues/28536).
 
 ### Pre-training:
 
