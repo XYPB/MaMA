@@ -34,7 +34,7 @@ pip install 'git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-war
 
 ~~After installing the corresponding environment, you may load our full pre-trained model from Hugging Face using 1 line of code as follows:~~
 
-**Note: Unfortunately, we cannot share our pre-trained model anymore due to the recently changed policy. You may train the model yourself following the instructions below.**
+**Note: Unfortunately, we have to pause the model weight sharing due to the recently changed policy. You may access the data by yourself and train the model yourself, following the instructions below.**
 
 
 ### Dataset:
@@ -59,9 +59,9 @@ Download the RSNA-Mammo at [here](https://www.kaggle.com/competitions/rsna-breas
 
 #### Define your data folder
 
-Before you proceed, you need to define the directory to all your datasets, you can change this at [here](https://github.com/XYPB/MaMA/blob/aefc7750f23b0d163feade8732e957c4a7552480/dataset/constants_val.py#L5), replace `<path-to-your-data-folder>` with your own path.
+Before you proceed, you need to define the directory to all your datasets. You can change this at [here](https://github.com/XYPB/MaMA/blob/aefc7750f23b0d163feade8732e957c4a7552480/dataset/constants_val.py#L5), replace `<path-to-your-data-folder>` with your own path.
 
-Besides, you also need to use your own Huggingface API token to access and download pretrained encoders, you need to search `<replace-with-your-hf-api-token>` within the repo, and replace it with your own API tokens.
+Besides, you also need to use your own Huggingface API token to access and download pretrained encoders. You need to search `<replace-with-your-hf-api-token>` within the repo, and replace it with your own API tokens.
 
 ### Pre-trained Checkpoint
 
@@ -70,7 +70,7 @@ Besides, you also need to use your own Huggingface API token to access and downl
 
 ~~We also provide the pretrained DiNOv2 ViT-B-14 checkpoint here, which can be easily reloaded using a few lines of code:~~
 
-**Note: Unfortunately, we cannot share our pre-trained model anymore due to the recently changed policy. You may train the model yourself following the instructions below.**
+**Note: Unfortunately, we have to pause the model weight sharing due to the recently changed policy. You may access the data by yourself and train the model yourself, following the instructions below.**
 
 
 **NOTE**: You may encounter a potential error when using gradient checkpoint with LLMs implemented by Huggingface. To solve this, you need to add `use_reentrant=True` to the `gradient_checkpoint` function in the source code. You may also refer to [this issue](https://github.com/huggingface/transformers/issues/28536).
