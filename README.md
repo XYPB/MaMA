@@ -34,7 +34,7 @@ pip install 'git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-war
 
 ~~After installing the corresponding environment, you may load our full pre-trained model from Hugging Face using 1 line of code as follows:~~
 
-**Note: Unfortunately, we have to pause the model weight sharing due to the recently changed policy. You may access the data by yourself and train the model yourself, following the instructions below.**
+**Note: Unfortunately, we have to pause the model weight sharing due to the recently changed dataset [policy](https://github.com/Emory-HITI/EMBED_Open_Data/blob/main/EMBED_license.md) on April 28th. You may apply for access to the data and then train the model, following the instructions below.**
 
 
 ### Dataset:
@@ -45,7 +45,7 @@ We pretrained our model with [Emory Breast Imaging Dataset (EMBED)](https://gith
 
 Download the EMBED dataset at [here](https://aws.amazon.com/marketplace/pp/prodview-unw4li5rkivs2#resources)
 
-We pre-process and re-size the original DICOM images using `scripts/resize_embed.py`, which resizes the long-side of the original DICOM image to 1024. This will speed up training by a lot and save your local disk space. For more detailed settings, please refer to our paper.
+We pre-process and re-size the original DICOM images using `scripts/resize_embed.py`, which resizes the long side of the original DICOM image to 1024. This will speed up training by a lot and save your local disk space. For more detailed settings, please refer to our paper.
 
 ##### Data Split
 
@@ -59,7 +59,7 @@ Download the RSNA-Mammo at [here](https://www.kaggle.com/competitions/rsna-breas
 
 #### Define your data folder
 
-Before you proceed, you need to define the directory to all your datasets. You can change this at [here](https://github.com/XYPB/MaMA/blob/aefc7750f23b0d163feade8732e957c4a7552480/dataset/constants_val.py#L5), replace `<path-to-your-data-folder>` with your own path.
+Before you proceed, you need to define the directory for all your datasets. You can change this at [here](https://github.com/XYPB/MaMA/blob/aefc7750f23b0d163feade8732e957c4a7552480/dataset/constants_val.py#L5), replace `<path-to-your-data-folder>` with your own path.
 
 Besides, you also need to use your own Huggingface API token to access and download pretrained encoders. You need to search `<replace-with-your-hf-api-token>` within the repo, and replace it with your own API tokens.
 
@@ -70,7 +70,7 @@ Besides, you also need to use your own Huggingface API token to access and downl
 
 ~~We also provide the pretrained DiNOv2 ViT-B-14 checkpoint here, which can be easily reloaded using a few lines of code:~~
 
-**Note: Unfortunately, we have to pause the model weight sharing due to the recently changed policy. You may access the data by yourself and train the model yourself, following the instructions below.**
+**Note: Unfortunately, we have to pause the model weight sharing due to the recently changed dataset [policy](https://github.com/Emory-HITI/EMBED_Open_Data/blob/main/EMBED_license.md) on April 28th. You may apply for access to the data and then train the model, following the instructions below.**
 
 
 **NOTE**: You may encounter a potential error when using gradient checkpoint with LLMs implemented by Huggingface. To solve this, you need to add `use_reentrant=True` to the `gradient_checkpoint` function in the source code. You may also refer to [this issue](https://github.com/huggingface/transformers/issues/28536).
