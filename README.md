@@ -10,8 +10,10 @@ This is the official implementation of paper **MaMA**: *"Multi-View and Multi-Sc
 
 ## News
 
-- [March 2025] We now provide the pre-trained model download at Huggingface! You can load our pre-trained ViT within a few lines of code now!
-- [March 2025] Paper is accepted by **IPMI 2025** for oral presentation!🎉 The code and pre-trained model are released!
+- [May 2025]  We are very honor that our work was awarded with the second place of the best paper award at IPMI 2025!!🎉
+- [April 2025]  Unfortunately, due to the newly changed dataset [policy](https://github.com/Emory-HITI/EMBED_Open_Data/blob/main/EMBED_license.md), we can not share the pre-trained model any more. 😢
+- [March 2025]  ~~We now provide the pre-trained model download at Huggingface! You can load our pre-trained ViT within a few lines of code now!~~
+- [March 2025]  Paper is accepted by **IPMI 2025** for oral presentation!🎉 The code and pre-trained model are released!
 
 ## Abstract:
 
